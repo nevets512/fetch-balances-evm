@@ -97,7 +97,14 @@ async function getTokenBalancesAtBlock(addresses, blockHeight, provider) {
     tokenBalances[address] = balances.reduce((acc, curr, index) => {
       if (index < balances.length - 1) {
         const { token, balance } = curr;
-        const decimals = token === 'USDT' || token === 'USDC' ? 6 : 18;
+        let decimals;
+        if (token === 'USDT' || token === 'USDC') {
+          decimals = 6;
+        } else if (token === 'GALA') {
+          decimals = 8;
+        } else {
+          decimals = 18;
+        }
         acc[token] = formatTokenBalance(balance, decimals);
       } else {
         acc.ETH = formatEtherBalance(curr);
