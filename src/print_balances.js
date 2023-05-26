@@ -98,10 +98,12 @@ async function getTokenBalancesAtBlock(addresses, blockHeight, provider) {
       if (index < balances.length - 1) {
         const { token, balance } = curr;
         let decimals;
-        if (token === 'USDT' || token === 'USDC') {
+        if (token === 'USDT' || token === 'USDC' || token === 'POWR' || token === 'AXL') {
           decimals = 6;
-        } else if (token === 'GALA') {
+        } else if (token === 'GALA' || token === 'CVC' || token === 'CRO') {
           decimals = 8;
+        } else if (token === 'EVX') {
+          decimals = 4;
         } else {
           decimals = 18;
         }
