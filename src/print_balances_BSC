@@ -20,7 +20,7 @@ async function getTokenBalancesAtBlock(addresses, blockHeight, provider) {
   });
 
   const contracts = {
-    USDT: createContractInstance(config.tokens_BSC.USDT, provider),
+    USDT: createContractInstance(config.tokensBSC.USDT, provider),
   };
 
   const tokenBalances = {};
@@ -85,8 +85,8 @@ async function main() {
           `${address},${balances.USDT},${balances.USDC},${balances.ETH},${balances.FTM},${balances.MATIC},${balances.LINK},${balances.SAND},${balances.MANA},${balances.AXS},${balances.ONE_INCH},${balances.AAVE},${balances.ALPHA},${balances.APE},${balances.BAT},${balances.CHZ},${balances.COMP},${balances.CRO},${balances.CRV},${balances.CVX},${balances.DAI},${balances.DYDX},${balances.ENJ},${balances.ENS},${balances.GALA},${balances.GLM},${balances.GRT},${balances.GT},${balances.ILV},${balances.IMX},${balances.KUB},${balances.LDO},${balances.LRC},${balances.MKR},${balances.OCEAN},${balances.OMG},${balances.SNT},${balances.SNX},${balances.SUSHI},${balances.UNI},${balances.YFI},${balances.ABT},${balances.AXL},${balances.BAL},${balances.BOBA},${balances.CVC},${balances.DOGE},${balances.EVX},${balances.FTT},${balances.GAL},${balances.GF},${balances.GHST},${balances.GODS},${balances.KNC2},${balances.LYXE},${balances.POWR},${balances.RDN},${balances.STG},${balances.YGG},${balances.ZRX},${balances.JFIN}`)
       );
 
-      fs.writeFileSync('data/ETH_Mainnet_Balances.csv', csvData.join('\n'));
-      console.log('The balances have been written to ETH_Mainnet_Balances.csv');
+      fs.writeFileSync('data/BSC_Mainnet_Balances.csv', csvData.join('\n'));
+      console.log('The balances have been written to BSC_Mainnet_Balances.csv');
     });
 }
 
