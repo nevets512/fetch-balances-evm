@@ -87,6 +87,4 @@ This function can also be run as a standalone function. To do so, uncomment the 
 
 ## Future Improvements
 
-This script
-
- can be improved by allowing users to specify the date and time for the block number retrieval, either through command line arguments or an additional configuration file.
+This script can be improved by allowing users to specify the date and time for the block number retrieval, either through command line arguments or an additional configuration file, and could be extended to support different blockchains, additional tokens, or more input/output options.
