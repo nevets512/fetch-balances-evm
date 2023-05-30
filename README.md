@@ -1,12 +1,13 @@
 # Ethereum Token Balances Retriever
 
-This is a Node.js script that uses the ethers.js library to interact with the Ethereum blockchain. It retrieves token balances for a list of Ethereum addresses for a list of specified tokens and writes these balances to a CSV file. This script is particularly useful for anyone needing to track balances for multiple addresses and tokens on the Ethereum blockchain.
+This is a Node.js script that uses the ethers.js library and the `ethereum-block-by-date` library to interact with the Ethereum blockchain. It retrieves token balances for a list of Ethereum addresses for a list of specified tokens and writes these balances to a CSV file. The balances are retrieved at a specific block, which is determined by a given date and time. This script is particularly useful for anyone needing to track balances for multiple addresses and tokens on the Ethereum blockchain at a certain point in time.
 
 ## Prerequisites
 
 Before running this script, ensure that you have Node.js installed in your environment. You will also need the following Node.js packages:
 
 - `ethers`: Ethereum blockchain interaction
+- `ethereum-block-by-date`: Fetch Ethereum block by date
 - `dotenv`: Environment variable handler
 - `csv-parser`: CSV parsing
 - `fs`: File system interaction
@@ -15,7 +16,7 @@ Before running this script, ensure that you have Node.js installed in your envir
 Install these packages using npm:
 
 ```
-npm install ethers dotenv csv-parser fs progress
+npm install ethers dotenv csv-parser fs progress ethereum-block-by-date
 ```
 
 You will also need an Alchemy API key, which is used to interact with the Ethereum blockchain. Sign up for an account on [Alchemy's website](https://www.alchemy.com/) to get your key.
@@ -78,6 +79,14 @@ Replace `your_script_name.js` with the filename of this script.
 
 If any errors occur while running the script, they will be printed to the console and the script will exit with a status code of 1.
 
+## Ethereum Block Retriever by Date Function
+
+The `getBlockNumber` function in this script returns the Ethereum block number for a specific date and time. In this case, it's hardcoded to return the block number for '2022-12-31T16:59:59Z', but you can modify this date and time to suit your needs.
+
+This function can also be run as a standalone function. To do so, uncomment the `main` function at the end of the script.
+
 ## Future Improvements
 
-This script could be extended to support different blockchains, additional tokens, or more input/output options.
+This script
+
+ can be improved by allowing users to specify the date and time for the block number retrieval, either through command line arguments or an additional configuration file.
