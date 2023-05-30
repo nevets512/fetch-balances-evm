@@ -81,7 +81,7 @@ If any errors occur while running the script, they will be printed to the consol
 
 ## Ethereum Block Retriever by Date Function
 
-The `getBlockNumber` function in this script returns the Ethereum block number for a specific date and time. In this case, it's hardcoded to return the block number for '2022-12-31T16:59:59Z', but you can modify this date and time to suit your needs.
+The `getBlockNumber` function in this script returns the Ethereum block number for a specific date and time. In this case, it's hardcoded to return the block number for '2022-12-31T16:59:59Z' (representing the cutoff on 31 December at midnight in the time zone UTC+7), but you can modify this date and time to suit your needs.
 
 This function can also be run as a standalone function. To do so, uncomment the `main` function at the end of the script.
 
