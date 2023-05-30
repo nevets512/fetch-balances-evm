@@ -21,6 +21,8 @@ async function getTokenBalancesAtBlock(addresses, blockHeight, provider) {
 
   const contracts = {
     USDT: createContractInstance(config.tokensBSC.USDT, provider),
+    BUSD: createContractInstance(config.tokensBSC.BUSD, provider),
+    ALPACA: createContractInstance(config.tokensBSC.ALPACA, provider),
   };
 
   const tokenBalances = {};
@@ -51,7 +53,7 @@ async function getTokenBalancesAtBlock(addresses, blockHeight, provider) {
         }
         acc[token] = formatTokenBalance(balance, decimals);
       } else {
-        acc.ETH = formatEtherBalance(curr);
+        acc.BNB = formatEtherBalance(curr);
       }
       return acc;
     }, {});
@@ -80,9 +82,9 @@ async function main() {
             
       const tokenBalances = await getTokenBalancesAtBlock(addresses, blockNumber, provider);
 
-      const csvData = ['address,USDT,USDC,ETH,FTM,MATIC,LINK,SAND,MANA,AXS,ONE_INCH,AAVE,ALPHA,APE,BAT,CHZ,COMP,CRO,CRV,CVX,DAI,DYDX,ENJ,ENS,GALA,GLM,GRT,GT,ILV,IMX,KUB,LDO,LRC,MKR,OCEAN,OMG,SNT,SNX,SUSHI,UNI,YFI,ABT,AXL,BAL,BOBA,CVC,DOGE,EVX,FTT,GAL,GF,GHST,GODS,KNC2,LYXE,POWR,RDN,STG,YGG,ZRX,JFIN'].concat(
+      const csvData = ['address,USDT,BNB,BUSD,ALPACA'].concat(
         Object.entries(tokenBalances).map(([address, balances]) =>
-          `${address},${balances.USDT},${balances.USDC},${balances.ETH},${balances.FTM},${balances.MATIC},${balances.LINK},${balances.SAND},${balances.MANA},${balances.AXS},${balances.ONE_INCH},${balances.AAVE},${balances.ALPHA},${balances.APE},${balances.BAT},${balances.CHZ},${balances.COMP},${balances.CRO},${balances.CRV},${balances.CVX},${balances.DAI},${balances.DYDX},${balances.ENJ},${balances.ENS},${balances.GALA},${balances.GLM},${balances.GRT},${balances.GT},${balances.ILV},${balances.IMX},${balances.KUB},${balances.LDO},${balances.LRC},${balances.MKR},${balances.OCEAN},${balances.OMG},${balances.SNT},${balances.SNX},${balances.SUSHI},${balances.UNI},${balances.YFI},${balances.ABT},${balances.AXL},${balances.BAL},${balances.BOBA},${balances.CVC},${balances.DOGE},${balances.EVX},${balances.FTT},${balances.GAL},${balances.GF},${balances.GHST},${balances.GODS},${balances.KNC2},${balances.LYXE},${balances.POWR},${balances.RDN},${balances.STG},${balances.YGG},${balances.ZRX},${balances.JFIN}`)
+          `${address},${balances.USDT},${balances.BNB},${balances.BUSD},${balances.ALPACA}`)
       );
 
       fs.writeFileSync('data/BSC_Mainnet_Balances.csv', csvData.join('\n'));
