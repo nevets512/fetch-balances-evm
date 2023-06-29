@@ -7,7 +7,7 @@ const provider = new ethers.providers.StaticJsonRpcProvider(`https://eth-mainnet
 const dater = new EthDater(provider);
 
 const getBlockNumber = async () => {
-    let block = await dater.getDate('2022-12-31T16:59:59Z');
+    let block = await dater.getDate('2021-12-31T16:59:59Z');
     return block;
   };
   
@@ -15,7 +15,7 @@ const getBlockNumber = async () => {
 
 // Uncomment this section if this script will be run as a standalone function  
 // const main = async () => {
-//   let block = await dater.getDate('2022-12-31T16:59:59Z');
+//   let block = await dater.getDate('2021-12-31T16:59:59Z');
 //   console.log(block);
 // };
 
